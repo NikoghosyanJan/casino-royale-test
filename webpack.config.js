@@ -2,10 +2,12 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.[contenthash].js',
+    publicPath: '/',
     clean: true,
   },
   resolve: {
@@ -15,7 +17,14 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+            },
+          },
+        ],
         exclude: /node_modules/,
       },
       {
@@ -25,10 +34,16 @@ module.exports = {
       {
         test: /\.(png|jpg|jpeg|gif|svg|webp)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'assets/images/[name].[hash][ext]',
+        },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[name].[hash][ext]',
+        },
       },
     ],
   },
@@ -36,6 +51,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
       favicon: './public/favicon.ico',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+      },
     }),
   ],
   devServer: {
@@ -48,4 +67,5 @@ module.exports = {
     open: true,
     historyApiFallback: true,
   },
+  devtool: process.env.NODE_ENV === 'production' ? false : 'source-map',
 };
