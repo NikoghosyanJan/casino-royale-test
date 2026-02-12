@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import heroBg from '../../../public/assets/images/hero-bg.png'; // Укажи правильный путь до картинки
 
 // --- Animations ---
 export const twinkle = keyframes` 0%, 100% {
@@ -107,7 +108,7 @@ export const StarsBackground = styled.div`
     inset: 0;
     opacity: 0.8;
     z-index: -1;
-    background-image: url('/assets/images/hero-bg.png');
+    background-image: url(${heroBg});
     background-size: cover;
     background-position: center;
 `;

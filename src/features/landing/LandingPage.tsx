@@ -5,6 +5,9 @@ import IconInstagram from "../../components/ui/icons/IconInstagram";
 import IconCertificate from "../../components/ui/icons/IconCertificate";
 import Icon18Plus from "../../components/ui/icons/Icon18plus";
 import GeoSelector from "../../components/GeoSelector";
+import casinoImg from '../../../public/assets/images/casino.png';
+import logoImg from '../../../public/assets/images/logo.png';
+import removalImg from '../../../public/assets/images/removal.png';
 
 const LandingPage: React.FC = () => {
   const { t, currentGeo, currentConfig, handleGeoChange, handleOpenGame } = useLandingPage();
@@ -19,9 +22,9 @@ const LandingPage: React.FC = () => {
             <S.StarLayer size={2} density={200} speed={4}/>
             <S.StarLayer size={3} density={100} speed={4}/>
           </S.NightSky>
-          <S.Logo src={"/assets/images/logo.png"} $animated/>
+          <S.Logo src={logoImg} $animated/>
           <S.SlotMachine>
-            <S.CasinoImage src={"/assets/images/casino.png"}/>
+            <S.CasinoImage src={casinoImg}/>
             <S.Coin $size={48} $delay="0s" $top="30px" $right="20px" />
             <S.Coin $size={56} $delay="1s" $top="-20px" $right="0" />
             <S.Coin $size={64} $delay="2s" $bottom="-30px" $right="-60px" />
@@ -35,9 +38,9 @@ const LandingPage: React.FC = () => {
 
         <S.BottomSection>
           <S.BottomSectionLeftSide>
-            <S.CharacterImage src={"/assets/images/removal.png"}/>
+            <S.CharacterImage src={removalImg}/>
             <S.DownloadCard>
-              <S.Logo $size="80px" src={"/assets/images/logo.png"}/>
+              <S.Logo $size="80px" src={logoImg}/>
               <S.DownloadTitle>{t('downloadCasino')}</S.DownloadTitle>
               <S.DownloadSubtitle>{t('playMin')}</S.DownloadSubtitle>
               <S.InstallButton $gradient={currentConfig.buttonGradient}>
