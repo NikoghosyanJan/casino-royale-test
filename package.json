@@ -2,7 +2,8 @@
   "name": "casino-royale-test",
   "version": "1.0.0",
   "description": "Casino Royale Landing Page - Test Task",
-  "homepage": "https://github.com/NikoghosyanJan/casino-royale-test",
+  "homepage": "https://NikoghosyanJan.github.io/casino-royale-test",
+
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --mode development --open",
