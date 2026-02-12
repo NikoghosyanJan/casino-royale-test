@@ -1,15 +1,16 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const isProduction = process.env.NODE_ENV === 'production';
 module.exports = {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.[contenthash].js',
-    publicPath: '/',
     clean: true,
+    filename: "bundle.js",
+    publicPath: isProduction ? '/casino-royale-test/' : '/',
   },
+
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
   },
