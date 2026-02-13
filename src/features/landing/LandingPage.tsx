@@ -12,7 +12,6 @@ import IconTg from "../../components/ui/icons/IconTg";
 import IconTwitter from "../../components/ui/icons/IconTwitter";
 import IconEmail from "../../components/ui/icons/IconEmail";
 import IconDownload from "../../components/ui/icons/IconDownload";
-import { BottomDivider } from "./styles";
 
 const LandingPage: React.FC = () => {
   const { t, currentGeo, currentConfig, handleGeoChange, handleOpenGame } = useLandingPage();

@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import heroBg from '../../../public/assets/images/hero-bg.png'; // Укажи правильный путь до картинки
+import heroBg from '../../../public/assets/images/hero-bg.png';
 
 // --- Animations ---
 export const twinkle = keyframes` 0%, 100% {
