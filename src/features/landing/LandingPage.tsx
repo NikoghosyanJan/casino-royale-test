@@ -8,6 +8,11 @@ import GeoSelector from "../../components/GeoSelector";
 import casinoImg from '../../../public/assets/images/casino.png';
 import logoImg from '../../../public/assets/images/logo.png';
 import removalImg from '../../../public/assets/images/removal.png';
+import IconTg from "../../components/ui/icons/IconTg";
+import IconTwitter from "../../components/ui/icons/IconTwitter";
+import IconEmail from "../../components/ui/icons/IconEmail";
+import IconDownload from "../../components/ui/icons/IconDownload";
+import { BottomDivider } from "./styles";
 
 const LandingPage: React.FC = () => {
   const { t, currentGeo, currentConfig, handleGeoChange, handleOpenGame } = useLandingPage();
@@ -25,9 +30,9 @@ const LandingPage: React.FC = () => {
           <S.Logo src={logoImg} $animated/>
           <S.SlotMachine>
             <S.CasinoImage src={casinoImg}/>
-            <S.Coin $size={48} $delay="0s" $top="30px" $right="20px" />
-            <S.Coin $size={56} $delay="1s" $top="-20px" $right="0" />
-            <S.Coin $size={64} $delay="2s" $bottom="-30px" $right="-60px" />
+            <S.Coin $size={48} $delay="0s" $top="30px" $right="20px"/>
+            <S.Coin $size={56} $delay="1s" $top="-20px" $right="0"/>
+            <S.Coin $size={64} $delay="2s" $bottom="-30px" $right="-60px"/>
           </S.SlotMachine>
           <S.OpenGameButtonWrapper>
             <S.OpenGameButton $gradient={currentConfig.buttonGradient} onClick={handleOpenGame}>
@@ -37,41 +42,45 @@ const LandingPage: React.FC = () => {
         </S.HeroSection>
 
         <S.BottomSection>
-          <S.BottomSectionLeftSide>
-            <S.CharacterImage src={removalImg}/>
-            <S.DownloadCard>
-              <S.Logo $size="80px" src={logoImg}/>
-              <S.DownloadTitle>{t('downloadCasino')}</S.DownloadTitle>
-              <S.DownloadSubtitle>{t('playMin')}</S.DownloadSubtitle>
-              <S.InstallButton $gradient={currentConfig.buttonGradient}>
-                <S.DownloadIcon/>
-                {t('installApp')}
-              </S.InstallButton>
-            </S.DownloadCard>
+          <S.BottomSectionContainer>
+            <S.BottomSectionLeftSide>
+              <S.CharacterImage src={removalImg}/>
+              <S.DownloadCard>
+                <S.Logo $size="80px" src={logoImg}/>
+                <S.DownloadTitle>{t('downloadCasino')}</S.DownloadTitle>
+                <S.DownloadSubtitle>{t('playMin')}</S.DownloadSubtitle>
+                <S.InstallButton $gradient={currentConfig.buttonGradient}>
+                  <IconDownload/>
+                  {t('installApp')}
+                </S.InstallButton>
+              </S.DownloadCard>
 
-            <S.CertificationSection>
-              <S.AgeRestriction>
-                <Icon18Plus/>
-                <S.AgeText>{t('only18')}</S.AgeText>
-              </S.AgeRestriction>
-              <S.CertificationInfo>
-                <IconCertificate/>
-                <S.CertText>{t('certified')}</S.CertText>
-              </S.CertificationInfo>
-            </S.CertificationSection>
-          </S.BottomSectionLeftSide>
+              <S.CertificationSection>
+                <S.AgeRestriction>
+                  <Icon18Plus/>
+                  <S.AgeText>{t('only18')}</S.AgeText>
+                </S.AgeRestriction>
+                <S.CertificationInfo>
+                  <IconCertificate/>
+                  <S.CertText>{t('certified')}</S.CertText>
+                </S.CertificationInfo>
+              </S.CertificationSection>
+            </S.BottomSectionLeftSide>
 
-          <S.RightInfoSection>
-            <GeoSelector currentGeo={currentGeo} onGeoChange={handleGeoChange}/>
-            <S.SocialSection>
-              <S.SocialTitle>{t('usOnSocialMedia')}</S.SocialTitle>
-              <S.SocialIcons>
-                {[...Array(4)].map((_, i) => (
-                  <S.SocialIcon key={i}><IconInstagram/></S.SocialIcon>
-                ))}
-              </S.SocialIcons>
-            </S.SocialSection>
-          </S.RightInfoSection>
+            <S.RightInfoSection>
+              <GeoSelector currentGeo={currentGeo} onGeoChange={handleGeoChange}/>
+              <S.SocialSection>
+                <S.SocialTitle>{t('usOnSocialMedia')}</S.SocialTitle>
+                <S.SocialIcons>
+                  <S.SocialIcon><IconInstagram/></S.SocialIcon>
+                  <S.SocialIcon><IconTg/></S.SocialIcon>
+                  <S.SocialIcon><IconTwitter/></S.SocialIcon>
+                  <S.SocialIcon><IconEmail/></S.SocialIcon>
+                </S.SocialIcons>
+              </S.SocialSection>
+            </S.RightInfoSection>
+          </S.BottomSectionContainer>
+          <S.BottomDivider/>
         </S.BottomSection>
       </S.ContentWrapper>
     </S.Container>

@@ -157,8 +157,8 @@ export const OpenGameButton = styled.button<{ $gradient: string }>`
     background: ${props => props.$gradient};
     border: none;
     border-radius: 8px;
-    padding: 16px 80px;
-    font-size: 18px;
+    padding: 19px 80px;
+    font-size: 16px;
     font-weight: 700;
     color: #FFFFFF;
     text-transform: uppercase;
@@ -167,24 +167,37 @@ export const OpenGameButton = styled.button<{ $gradient: string }>`
 `;
 
 export const BottomSection = styled.section`
-    display: flex;
     width: 100%;
-    justify-content: space-between;
-    padding: 60px 40px;
+    padding: 60px 40px 10px 40px;
     background: linear-gradient(to right, #02011F 0%, #02011F 60%, #06225D 100%);
-    @media (max-width: 1024px) {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-        background: linear-gradient(to bottom, #02011F, #06225D);
+    @media (max-width: 480px) {
+        padding: 40px 16px 10px 16px;
     }
 `;
 
+export const BottomSectionContainer = styled.section`
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    @media (max-width: 1200px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+`;
+
+export const BottomDivider = styled.div`
+    width: 100%;
+    padding-top: 50px;
+    border-bottom: 1px solid #FFFFFF1A;
+`;
+
 export const BottomSectionLeftSide = styled.div`
+    min-width: 70%;
     display: flex;
     align-items: center;
     gap: 40px;
-    @media (max-width: 1024px) {
+    @media (max-width: 1200px) {
         display: contents;
     }
 `;
@@ -192,8 +205,8 @@ export const BottomSectionLeftSide = styled.div`
 export const CertificationSection = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    @media (max-width: 1024px) {
+    gap: 20px;
+    @media (max-width: 1200px) {
         order: 4;
         align-items: center;
         text-align: center;
@@ -201,20 +214,27 @@ export const CertificationSection = styled.div`
         width: 100%;
         justify-content: space-evenly;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 480px) {
         flex-direction: column;
     }
 `;
 
 export const DownloadCard = styled.div`
     background: rgba(255, 255, 255, 0.03);
+    width: 100%;
+    max-width: 390px;
     border-radius: 16px;
     padding: 20px 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    @media (max-width: 1024px) {
+    border: 1px dashed #FF8D6B;
+    @media (max-width: 1200px) {
         order: 1;
+    }
+    @media (max-width: 480px) {
+        padding: 20px 16px;
+    
     }
 `;
 
@@ -223,7 +243,7 @@ export const RightInfoSection = styled.div`
     flex-direction: column;
     justify-content: space-between;
     gap: 24px;
-    @media (max-width: 1024px) {
+    @media (max-width: 1200px) {
         order: 2;
         align-items: center;
         width: 100%;
@@ -233,22 +253,26 @@ export const RightInfoSection = styled.div`
 export const CharacterImage = styled.img`
     width: 288px;
     height: 288px;
-    @media (max-width: 1024px) {
+    @media (max-width: 1200px) {
         display: none;
     }
 `;
 
-export const DownloadTitle = styled.h2` font-size: 24px;
+export const DownloadTitle = styled.h2`
     color: #FFFFFF;
-    margin-bottom: 8px; `;
-export const DownloadSubtitle = styled.p` font-size: 14px;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 8px 0; `;
+export const DownloadSubtitle = styled.p` font-size: 16px;
+    font-weight: 500;
     color: rgba(255, 255, 255, 0.7);
     margin-bottom: 24px; `;
 export const InstallButton = styled.button<{ $gradient: string }>`
     background: ${props => props.$gradient};
     border: none;
     border-radius: 8px;
-    padding: 14px 40px;
+    font-size: 16px;
+    padding: 8px 40px;
     color: #FFFFFF;
     font-weight: 600;
     display: flex;
@@ -256,45 +280,51 @@ export const InstallButton = styled.button<{ $gradient: string }>`
     gap: 10px;
     cursor: pointer;
 `;
-export const DownloadIcon = styled.div` width: 20px;
-    height: 20px;
-    border: 2px solid #FFFFFF;
-    border-radius: 4px;
-    position: relative;
 
-    &::after {
-        content: '↓';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 14px;
-    } `;
 export const SocialSection = styled.div`
     display: flex;
     flex-direction: column;
     gap: 12px;
     align-items: flex-end;
-    @media (max-width: 1024px) {
+    @media (max-width: 1200px) {
         order: 3;
         align-items: center;
     }
 `;
-export const SocialTitle = styled.p` font-size: 12px;
+export const SocialTitle = styled.p` 
     color: rgba(255, 255, 255, 0.7); `;
 export const SocialIcons = styled.div` display: flex;
     gap: 4px; `;
 export const SocialIcon = styled.a` cursor: pointer; `;
 export const AgeRestriction = styled.div` display: flex;
     align-items: center;
-    gap: 12px; `;
-export const AgeText = styled.span` font-size: 13px;
+    gap: 12px;
+    
+    @media (max-width: 1200px) {
+       display: flex;
+        flex-direction: column;
+    }
+
+    @media (max-width: 480px) {
+        margin-bottom: 10px; 
+    }
+`;
+export const AgeText = styled.span` font-size: 16px;
     color: rgba(255, 255, 255, 0.8);
     max-width: 80px; `;
-export const CertificationInfo = styled.div` display: flex;
+export const CertificationInfo = styled.div` 
+    display: flex;
     align-items: center;
-    gap: 12px; `;
-export const CertText = styled.p` font-size: 11px;
+    gap: 12px;
+    
+    @media (max-width: 1200px) {
+        display: flex;
+        flex-direction: column;
+    }
+`;
+export const CertText = styled.p`
+    min-width: 300px;
+    font-size: 16px;
     color: rgba(255, 255, 255, 0.8);
     max-width: 200px;
     line-height: 1.4; `;

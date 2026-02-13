@@ -5,6 +5,12 @@ export const SelectorWrapper = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
+    margin-top: 40px;
+
+    @media (max-width: 1200px) {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
 `;
 
 export const StyledSelect = styled(Select)`
@@ -15,7 +21,6 @@ export const StyledSelect = styled(Select)`
         background: rgba(255, 255, 255, 0.05);
         border-radius: 10px;
         color: #FFFFFF;
-        font-family: 'Montserrat', sans-serif;
         font-size: 14px;
         transition: all 0.3s ease;
 
@@ -52,7 +57,6 @@ export const StyledMenuItem = styled(MenuItem)`
         gap: 12px;
         padding: 12px 16px;
         color: #FFFFFF;
-        font-family: 'Montserrat', sans-serif;
         font-size: 14px;
 
         &:hover {
